@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Card from '../components/card'
-import Twemoji from 'react-twemoji'
 
 const Home: NextPage = () => {
     return (
@@ -17,13 +16,23 @@ const Home: NextPage = () => {
                 <Card
                     emoji="✍️"
                     title="漢字筆談會"
-                    description="Han Characters Pen Talk Community"
-                    href="https://wiki.筆談.漢字.net/" />
+                    description="Han Characters Pen Talk Community."
+                    href="https://筆談.漢字.net/" />
                 <Card
                     emoji="🗺️"
                     title="韓國語 地圖"
                     description="An OpenStreetMap tile server with Hanja labels."
                     href="https://map.韓國語.漢字.net/" />
+                <Card
+                    emoji="🎮"
+                    title="漢字接尾"
+                    description="An experimental word chain game in Han Characters."
+                    href="https://接尾.漢字.net/" />
+                <Card
+                    emoji="🔄"
+                    title="漢字變換器"
+                    description="Korean Hanja Converter for Android."
+                    href="https://play.google.com/store/apps/details?id=io.github.lee0701.converter" />
                 <div className="w-96"></div>
                 {/* <Card
                     emoji=""

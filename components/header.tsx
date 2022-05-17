@@ -5,7 +5,7 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
     return (
-        <div>
+        <div className="mt-16">
             <h1 className="text-6xl font-bold">
                 Welcome to{' '}
                 <span className="text-orange-500">
