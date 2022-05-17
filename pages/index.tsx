@@ -31,6 +31,11 @@ const Home: NextPage = () => {
                     title="漢字變換器"
                     description="Korean Hanja Converter for Android."
                     href="https://play.google.com/store/apps/details?id=io.github.lee0701.converter" />
+                    <Card
+                        emoji="➕"
+                        title="More"
+                        description="Contact the maintainer to add your project with 漢字.net subdomain."
+                        href="https://t.me/oyat_lee" />
                 <div className="w-96"></div>
                 {/* <Card
                     emoji=""
