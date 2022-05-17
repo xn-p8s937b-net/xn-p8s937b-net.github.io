@@ -42,11 +42,11 @@ jobs:
         
       - name: Tar build files
         run: |
-          cd ./build/
-          ls -la ./
-          tar --exclude='*.tar.gz' \
-            -zcvf ../build.tar.gz \
-            .
+        cd ./build/
+        ls -la ./
+        tar --exclude='*.tar.gz' \
+          -zcvf ../build.tar.gz \
+          .
       - name: Upload build files 
         uses: actions/upload-artifact@v2
         with:
@@ -73,7 +73,7 @@ jobs:
       - name: Publish build files 
         uses: corcc/publish@node
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub Token (required)
           BRANCH: gh-pages
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub Token (required)
           TASK_NAME: '🔧'  # Commit Comment (required)
-          TZ: 'Asia/Seoul' # Timezone (optional)
+          TZ: 'Asia/Tokyo' # Timezone (optional)
