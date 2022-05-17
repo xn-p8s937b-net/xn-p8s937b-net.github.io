@@ -18,8 +18,8 @@ export default function Card(props: CardProps) {
             className="group mx-2 my-6 w-96 h-64 rounded-xl p-6 text-left bg-white shadow-lg hover:bg-gray-50 active:shadow-md">
             
             <Twemoji options={{ className: "text-8xl twemoji" }}>{props.emoji}</Twemoji>
-            <h3 className="mt-4 text-2xl font-bold group-hover:text-orange-500 group-focus:text-orange-500">{props.title} &rarr;</h3>
-            <p className="flex flex-row">
+            <h3 className="mt-2 text-2xl font-bold group-hover:text-orange-500 group-focus:text-orange-500">{props.title} &rarr;</h3>
+            <p className="flex flex-row mt-2">
                 {props.tags.map((tag) => {
                     const color = (tags[tag] || {bg: '#e0e0e0', text: "black"})
                     const style = { backgroundColor: color.bg, color: color.text}
@@ -28,7 +28,7 @@ export default function Card(props: CardProps) {
                     )
                 })}
             </p>
-            <p className="mt-4 text-xl">{props.description}</p>
+            <p className="mt-2 text-xl">{props.description}</p>
         </a>
     )
 }
