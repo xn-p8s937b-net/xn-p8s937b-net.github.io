@@ -22,9 +22,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          ref: gh-pages
-          submodules: recursive
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.2.0
@@ -40,10 +37,8 @@ jobs:
         run: npm run export
       - run: touch docs/.nojekyll
 
-      - name: Publish
-        uses: ko-Kore/publish@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TASK_NAME: 'Publish'
-          TIMEZONE: 'Asia/Seoul'
-          BRANCH_NAME: 'gh-pages'
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs # The folder the action should deploy.
