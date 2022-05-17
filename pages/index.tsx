@@ -12,7 +12,8 @@ const Home: NextPage = () => {
                         emoji={card.emoji}
                         title={card.title}
                         description={card.description}
-                        href={card.href} />
+                        href={card.href}
+                        tags={card.tags} />
                     )
                 })}
                 <div className="w-96"></div>

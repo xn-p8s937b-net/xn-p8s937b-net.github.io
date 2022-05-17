@@ -1,0 +1,18 @@
+{
+    "Discord": {
+        "bg": "#5865F2",
+        "text": "white"
+    },
+    "Android": {
+        "bg": "#3DDC84",
+        "text": "black"
+    },
+    "Game": {
+        "bg": "#E93C0C",
+        "text": "white"
+    },
+    "Wiki": {
+        "bg": "#FBEFDB",
+        "text": "black"
+    }
+}
