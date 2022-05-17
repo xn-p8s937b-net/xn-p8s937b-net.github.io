@@ -38,6 +38,7 @@ jobs:
 
       - name: Export Static Site
         run: npm run export
+      - run: touch docs/.nojekyll
 
       - name: Publish
         uses: ko-Kore/publish@master
