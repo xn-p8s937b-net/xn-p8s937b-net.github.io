@@ -35,3 +35,9 @@ jobs:
 
       - name: Export Static Site
         run: npm run export
+
+      - name: Deploy GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: out
