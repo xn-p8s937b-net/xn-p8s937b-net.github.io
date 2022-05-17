@@ -29,5 +29,9 @@ jobs:
         uses: actions/setup-node@v3.2.0
         with:
           node-version: latest
-      - run: npm run export
-          
+  
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Export Static Site
+        run: npm run export
