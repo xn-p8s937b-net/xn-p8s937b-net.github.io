@@ -36,9 +36,10 @@ jobs:
       - name: Export Static Site
         run: npm run export
 
-      - name: Deploy GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
+      - name: Publish
+        uses: ko-Kore/publish@master
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: docs
+          TASK_NAME: 'Publish'
+          TIMEZONE: 'Asia/Seoul'
+          BRANCH_NAME: 'gh-pages'
