@@ -10,17 +10,24 @@ const tagStyles: { [tag: string]: {bg: string, text: string} | null } = _tagStyl
 const Home: NextPage = () => {
 
     const [visibleTags, setVisibleTags] = useState<string[]>([])
-
-    const filteredCards = cards.filter(({tags}) => visibleTags.length == 0 || tags.some((tag) => visibleTags.includes(tag)))
-
     const onTagClick = (tag: string) => {
         if(visibleTags.includes(tag)) visibleTags.splice(visibleTags.indexOf(tag), 1)
         else visibleTags.push(tag)
         setVisibleTags([...visibleTags])
     }
+    const filteredCards = cards.filter(({tags}) => visibleTags.length == 0 || visibleTags.every((tag) => tags.includes(tag)))
 
     return (
         <Layout>
+            <div className="mt-6 flex max-w-4xl flex-wrap">
+                {Object.keys(tagStyles).map((tag) => {
+                    const color = (tagStyles[tag] || {bg: '#e0e0e0', text: "black"})
+                    const style = { backgroundColor: color.bg, color: color.text}
+                    return (
+                        <a href="#" onClick={() => onTagClick(tag)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
+                    )
+                })}
+            </div>
             <div className="flex-1 mt-6 flex max-w-4xl flex-wrap items-start justify-around sm:w-full">
                 {filteredCards.map(({emoji, title, description, href, tags}) => {
                     return (
