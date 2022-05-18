@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export default function Layout({children}: LayoutProps) {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
             <Head>
                 <title>漢字.net Portal</title>
                 <link rel="icon" href="/favicon.ico" />
@@ -17,7 +17,7 @@ export default function Layout({children}: LayoutProps) {
             </Head>
 
             <Header />
-            <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+            <main className="w-full flex-1 flex flex-col items-center justify-center px-20 text-center">
                 {children}
             </main>
             <Footer />

@@ -50,7 +50,7 @@ const Home: NextPage = () => {
                         </a>
                     )
                 })}
-                <div className="w-96 mx-2"></div>
+                <div className="w-96 mx-2 grow-1"></div>
             </div>
         </Layout>
     )
