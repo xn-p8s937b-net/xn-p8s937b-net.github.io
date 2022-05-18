@@ -5,7 +5,7 @@ import cards from '../assets/cards.json'
 import _tagStyles from '../assets/tag-styles.json'
 import Twemoji from 'react-twemoji'
 
-const tagStyles: { [tag: string]: {bg: string, text: string} } = _tagStyles
+const tagStyles: { [tag: string]: {bg: string, text: string} | null } = _tagStyles
 
 const Home: NextPage = () => {
 
