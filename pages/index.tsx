@@ -10,7 +10,8 @@ const tagStyles: { [tag: string]: {bg: string, text: string} | null } = _tagStyl
 const Home: NextPage = () => {
 
     const [visibleTags, setVisibleTags] = useState<string[]>([])
-    const onTagClick = (tag: string) => {
+    const onTagClick = (tag: string, single: boolean) => {
+        if(single) visibleTags.splice(0, visibleTags.length)
         if(visibleTags.includes(tag)) visibleTags.splice(visibleTags.indexOf(tag), 1)
         else visibleTags.push(tag)
         setVisibleTags([...visibleTags])
@@ -22,9 +23,9 @@ const Home: NextPage = () => {
             <div className="mt-6 flex max-w-4xl flex-wrap">
                 {Object.keys(tagStyles).map((tag) => {
                     const color = (tagStyles[tag] || {bg: '#e0e0e0', text: "black"})
-                    const style = { backgroundColor: color.bg, color: color.text}
+                    const style = visibleTags.includes(tag) ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: color.bg, color: color.text}
                     return (
-                        <a href="#" onClick={() => onTagClick(tag)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
+                        <a href="#" onClick={() => onTagClick(tag, false)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
                     )
                 })}
             </div>
@@ -40,9 +41,9 @@ const Home: NextPage = () => {
                             <p className="flex flex-row mt-2">
                                 {tags.map((tag) => {
                                     const color = (tagStyles[tag] || {bg: '#e0e0e0', text: "black"})
-                                    const style = { backgroundColor: color.bg, color: color.text}
+                                    const style = visibleTags.includes(tag) ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: color.bg, color: color.text}
                                     return (
-                                        <a href="#" onClick={() => onTagClick(tag)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
+                                        <a href="#" onClick={() => onTagClick(tag, true)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
                                     )
                                 })}
                             </p>
