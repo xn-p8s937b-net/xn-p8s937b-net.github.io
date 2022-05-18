@@ -16,7 +16,7 @@ const Home: NextPage = () => {
                         tags={card.tags} />
                     )
                 })}
-                <div className="w-96"></div>
+                <div className="w-96 mx-2"></div>
                 {/* <Card
                     emoji=""
                     title=""
