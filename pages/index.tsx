@@ -11,9 +11,11 @@ const Home: NextPage = () => {
 
     const [visibleTags, setVisibleTags] = useState<string[]>([])
     const onTagClick = (tag: string, single: boolean) => {
+        const included = visibleTags.includes(tag)
         if(single) visibleTags.splice(0, visibleTags.length)
         if(visibleTags.includes(tag)) visibleTags.splice(visibleTags.indexOf(tag), 1)
         else visibleTags.push(tag)
+        if(single && included) visibleTags.splice(visibleTags.indexOf(tag), 1)
         setVisibleTags([...visibleTags])
     }
     const filteredCards = cards.filter(({tags}) => visibleTags.length == 0 || visibleTags.every((tag) => tags.includes(tag)))
