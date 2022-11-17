@@ -11,6 +11,10 @@
         "bg": "#E93C0C",
         "text": "white"
     },
+    "Mastodon": {
+        "bg": "#595aff",
+        "text": "white"
+    },
     "Wiki": {
         "bg": "#FBEFDB",
         "text": "black"

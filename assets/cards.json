@@ -14,6 +14,13 @@
         "tags": ["Discord", "漢文"]
     },
     {
+        "emoji": "🐘",
+        "title": "國漢象會",
+        "description": "A Mastodon instance for Sino-Korean mixed script users.",
+        "href": "https://mastodon.韓國語.漢字.net/",
+        "tags": ["Mastodon", "韓國語"]
+    },
+    {
         "emoji": "🗺️",
         "title": "韓國語 地圖",
         "description": "An OpenStreetMap tile server with Hanja labels.",
