@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Layout from '../components/layout'
-import cards from '../assets/cards.json'
+import cardList from '../assets/cards.json'
 import _tagStyles from '../assets/tag-styles.json'
 import Twemoji from 'react-twemoji'
 
 const tagStyles: { [tag: string]: {bg: string, text: string} | null } = _tagStyles
 
-const Home: NextPage = () => {
+const Home: NextPage<Props> = (props) => {
+    const cards: Card[] = props.cards
 
     const [visibleTags, setVisibleTags] = useState<string[]>([])
     const onTagClick = (tag: string, single: boolean) => {
@@ -41,7 +42,7 @@ const Home: NextPage = () => {
                             <Twemoji options={{ className: "text-8xl twemoji" }}>{emoji}</Twemoji>
                             <h3 className="mt-2 text-2xl font-bold group-hover:text-orange-500 group-focus:text-orange-500">{title} &rarr;</h3>
                             <p className="flex flex-row mt-2">
-                                {tags.map((tag) => {
+                                {tags.map((tag: string) => {
                                     const color = (tagStyles[tag] || {bg: '#e0e0e0', text: "black"})
                                     const style = visibleTags.includes(tag) ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: color.bg, color: color.text}
                                     return (
@@ -57,6 +58,31 @@ const Home: NextPage = () => {
             </div>
         </Layout>
     )
+}
+
+export interface Props {
+    cards: Card[]
+}
+
+export interface Card {
+    emoji: string
+    title: string
+    description: string
+    href: string
+    tags: string[]
+}
+
+export async function getStaticProps() {
+    const cards = await Promise.all(cardList.map(async (name) => {
+        const module = await import( `../assets/cards/${name}.json`)
+        const card: Card = JSON.parse(JSON.stringify(module))
+        return card
+    }))
+    return {
+        props: {
+            cards,
+        }
+    }
 }
 
 export default Home
