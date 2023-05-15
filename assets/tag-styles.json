@@ -1,23 +1,19 @@
 {
-    "Discord": {
-        "bg": "#5865F2",
-        "text": "white"
-    },
     "Android": {
         "bg": "#3DDC84",
         "text": "black"
+    },
+    "Data": {
+        "bg": "#4F4F4F",
+        "text": "white"
     },
     "Game": {
         "bg": "#E93C0C",
         "text": "white"
     },
-    "Mastodon": {
-        "bg": "#595aff",
+    "Social": {
+        "bg": "#5865F2",
         "text": "white"
-    },
-    "Wiki": {
-        "bg": "#FBEFDB",
-        "text": "black"
     },
     "Web": {
         "bg": "#FBEFDB",
