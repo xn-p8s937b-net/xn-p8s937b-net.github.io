@@ -28,7 +28,7 @@ const Home: NextPage<Props> = (props) => {
                     const color = (tagStyles[tag] || {bg: '#e0e0e0', text: "black"})
                     const style = visibleTags.includes(tag) ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: color.bg, color: color.text}
                     return (
-                        <a href="#" onClick={() => onTagClick(tag, false)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
+                        <a href="#" onClick={() => onTagClick(tag, false)} className="mx-1 my-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
                     )
                 })}
             </div>
