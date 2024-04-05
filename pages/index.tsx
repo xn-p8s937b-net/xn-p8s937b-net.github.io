@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import cardList from '../assets/cards.json'
@@ -23,6 +23,7 @@ const Home: NextPage<Props> = (props) => {
 
     return (
         <Layout>
+            <title>漢字.net Portal</title>
             <div className="mt-6 flex max-w-4xl flex-wrap">
                 {Object.keys(tagStyles).map((tag) => {
                     const color = (tagStyles[tag] || {bg: '#e0e0e0', text: "black"})
