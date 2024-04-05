@@ -40,7 +40,7 @@ const Home: NextPage<Props> = (props) => {
                             key={href}
                             className="mx-2 my-6 w-96 h-64 rounded-xl p-6 text-left bg-white shadow-lg hover:bg-gray-50 a ctive:shadow-md">
                             <a href={href}>
-                                <Twemoji options={{ className: "text-8xl twemoji" }}>{emoji}</Twemoji>
+                                <Twemoji options={{ base: 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/' }}>{emoji}</Twemoji>
                                 <h3 className="mt-2 text-2xl font-bold hover:text-orange-500 focus:text-orange-500">{title}</h3>
                             </a>
                             <p className="mt-2 text-xl">{description}</p>
