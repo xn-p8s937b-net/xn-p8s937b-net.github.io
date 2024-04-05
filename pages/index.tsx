@@ -2,10 +2,10 @@ import { useState } from 'react'
 import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import cardList from '../assets/cards.json'
-import _tags from '../assets/tags.json'
+import _tagTypes from '../assets/tags.json'
 import Twemoji from 'react-twemoji'
 
-const tags: { [tag: string]: {bg: string, text: string} | null } = _tags
+const tagTypes: { [tag: string]: {bg: string, text: string} | null } = _tagTypes
 
 const Home: NextPage<Props> = (props) => {
     const cards: Card[] = props.cards
@@ -25,8 +25,8 @@ const Home: NextPage<Props> = (props) => {
         <Layout>
             <title>漢字.net Portal</title>
             <div className="mt-6 flex max-w-4xl flex-wrap">
-                {Object.keys(tags).map((tag) => {
-                    const color = (tags[tag] || {bg: '#e0e0e0', text: "black"})
+                {Object.keys(tagTypes).map((tag) => {
+                    const color = (tagTypes[tag] || {bg: '#e0e0e0', text: "black"})
                     const style = visibleTags.includes(tag) ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: color.bg, color: color.text}
                     return (
                         <a key={tag} href="#" onClick={() => onTagClick(tag, false)} className="mx-1 my-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
@@ -46,7 +46,7 @@ const Home: NextPage<Props> = (props) => {
                             <p className="mt-2 text-xl">{description}</p>
                             <p className="flex flex-row mt-2">
                                 {tags.map((tag: string) => {
-                                    const color = (tags[tag] || {bg: '#e0e0e0', text: "black"})
+                                    const color = (tagTypes[tag] || {bg: '#e0e0e0', text: "black"})
                                     const style = visibleTags.includes(tag) ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: color.bg, color: color.text}
                                     return (
                                         <a key={tag} href="#" onClick={() => onTagClick(tag, true)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
