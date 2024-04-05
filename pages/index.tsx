@@ -28,7 +28,7 @@ const Home: NextPage<Props> = (props) => {
                     const color = (tagStyles[tag] || {bg: '#e0e0e0', text: "black"})
                     const style = visibleTags.includes(tag) ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: color.bg, color: color.text}
                     return (
-                        <a href="#" onClick={() => onTagClick(tag, false)} className="mx-1 my-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
+                        <a key={tag} href="#" onClick={() => onTagClick(tag, false)} className="mx-1 my-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
                     )
                 })}
             </div>
@@ -36,6 +36,7 @@ const Home: NextPage<Props> = (props) => {
                 {filteredCards.map(({emoji, title, description, href, tags}) => {
                     return (
                         <div
+                            key={href}
                             className="mx-2 my-6 w-96 h-64 rounded-xl p-6 text-left bg-white shadow-lg hover:bg-gray-50 a ctive:shadow-md">
                             <a href={href}>
                                 <Twemoji options={{ className: "text-8xl twemoji" }}>{emoji}</Twemoji>
@@ -47,7 +48,7 @@ const Home: NextPage<Props> = (props) => {
                                     const color = (tagStyles[tag] || {bg: '#e0e0e0', text: "black"})
                                     const style = visibleTags.includes(tag) ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: color.bg, color: color.text}
                                     return (
-                                        <a href="#" onClick={() => onTagClick(tag, true)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
+                                        <a key={tag} href="#" onClick={() => onTagClick(tag, true)} className="mr-1 py-1 px-4 rounded-md hover:mix-blend-multiply" style={style}>{tag}</a>
                                     )
                                 })}
                             </p>
